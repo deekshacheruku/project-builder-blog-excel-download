@@ -87,7 +87,7 @@ public class ExcelFileStorage {
             sheet.autoSizeColumn(i);
         }
 
-        FileOutputStream fileOut = new FileOutputStream("C://Users//vinot//Downloads//blog.xlsx");
+        FileOutputStream fileOut = new FileOutputStream("C://Users//user//Downloads//blog.xlsx");
         
         workbook.write(fileOut);
         
