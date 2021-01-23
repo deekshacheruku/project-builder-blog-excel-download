@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Blog;
 import model.User;
+import service.CRUDOperations;
 import service.ExcelFileStorage;
 import utility.CheckBlogPost;
 
@@ -56,6 +58,15 @@ public class BlogController extends HttpServlet {
 		
 		ExcelFileStorage excel=new ExcelFileStorage();
 		excel.insertBlog(blog);
+		
+		CRUDOperations crud=new CRUDOperations();
+		List<Blog> listblog = crud.createBlog(blog);
+		
+		//List<Blog> listblog1= crud.viewBlog(blog);
+		//List<Blog> listblog2= crud.updateBlog(blog);
+		
+		List<Blog> l1=crud.SortByDate();
+		List<Blog> l2=crud.SortByTitle();
 		
 		System.out.println(check);
 		if(check) {
